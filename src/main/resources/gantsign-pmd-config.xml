@@ -33,7 +33,9 @@
   <rule ref="category/java/bestpractices.xml/JUnit4SuitesShouldUseSuiteAnnotation"/>
   <rule ref="category/java/bestpractices.xml/JUnit4TestShouldUseAfterAnnotation"/>
   <rule ref="category/java/bestpractices.xml/JUnit4TestShouldUseBeforeAnnotation"/>
-  <rule ref="category/java/bestpractices.xml/JUnit4TestShouldUseTestAnnotation"/>
+
+  <!-- Too many false positives -->
+  <!--<rule ref="category/java/bestpractices.xml/JUnit4TestShouldUseTestAnnotation"/>-->
 
   <!-- The overhead of adding these is more than the time saved when assertions fail -->
   <!-- <rule ref="category/java/bestpractices.xml/JUnitAssertionsShouldIncludeMessage" /> -->
@@ -51,8 +53,11 @@
   <rule ref="category/java/bestpractices.xml/MethodReturnsInternalArray"/>
   <rule ref="category/java/bestpractices.xml/MissingOverride"/>
   <rule ref="category/java/bestpractices.xml/OneDeclarationPerLine"/>
-  <rule ref="category/java/bestpractices.xml/PositionLiteralsFirstInCaseInsensitiveComparisons"/>
-  <rule ref="category/java/bestpractices.xml/PositionLiteralsFirstInComparisons"/>
+
+  <!-- While it can be useful to avoid NPEs it can also reduce readability -->
+  <!--<rule ref="category/java/bestpractices.xml/PositionLiteralsFirstInCaseInsensitiveComparisons"/>-->
+  <!--<rule ref="category/java/bestpractices.xml/PositionLiteralsFirstInComparisons"/>-->
+
   <rule ref="category/java/bestpractices.xml/PreserveStackTrace"/>
   <rule ref="category/java/bestpractices.xml/ReplaceEnumerationWithIterator"/>
   <rule ref="category/java/bestpractices.xml/ReplaceHashtableWithMap"/>
@@ -75,7 +80,8 @@
   <!-- *** Code Style *** -->
   <!-- ****************** -->
 
-  <rule ref="category/java/codestyle.xml/AbstractNaming"/>
+  <!-- Abstract is an implementation detail that shouldn't be part of the API name -->
+  <!-- <rule ref="category/java/codestyle.xml/AbstractNaming"/> -->
 
   <!-- There's no point in explicitly declaring the default constructor -->
   <!-- <rule ref="category/java/codestyle.xml/AtLeastOneConstructor" /> -->
@@ -106,7 +112,10 @@
   <!-- <rule ref="category/java/codestyle.xml/ConfusingTernary" /> -->
 
   <rule ref="category/java/codestyle.xml/ControlStatementBraces"/>
-  <rule ref="category/java/codestyle.xml/DefaultPackage"/>
+
+  <!-- Nothing wrong with using package scope -->
+  <!--<rule ref="category/java/codestyle.xml/DefaultPackage"/>-->
+
   <rule ref="category/java/codestyle.xml/DontImportJavaLang"/>
   <rule ref="category/java/codestyle.xml/DuplicateImports"/>
   <rule ref="category/java/codestyle.xml/EmptyMethodInAbstractClassShouldBeAbstract"/>
@@ -166,13 +175,22 @@
 
   <rule ref="category/java/codestyle.xml/UnnecessaryAnnotationValueElement"/>
   <rule ref="category/java/codestyle.xml/UnnecessaryConstructor"/>
-  <rule ref="category/java/codestyle.xml/UnnecessaryFullyQualifiedName"/>
+
+  <!-- Sometimes is useful to qualify a name for clarity -->
+  <!--<rule ref="category/java/codestyle.xml/UnnecessaryFullyQualifiedName"/>-->
+
   <rule ref="category/java/codestyle.xml/UnnecessaryLocalBeforeReturn"/>
   <rule ref="category/java/codestyle.xml/UnnecessaryModifier"/>
   <rule ref="category/java/codestyle.xml/UnnecessaryReturn"/>
-  <rule ref="category/java/codestyle.xml/UselessParentheses"/>
+
+  <!-- Too aggressive, sometimes we want to keep clarifying parentheses -->
+  <!--<rule ref="category/java/codestyle.xml/UselessParentheses"/>-->
+
   <rule ref="category/java/codestyle.xml/UselessQualifiedThis"/>
-  <rule ref="category/java/codestyle.xml/VariableNamingConventions"/>
+
+  <!-- False positive for static final fields that aren't constants
+  (e.g. loggers), only constants should be uppercase -->
+  <!--<rule ref="category/java/codestyle.xml/VariableNamingConventions"/>-->
 
   <!-- Deprecated - replaced with ControlStatementBraces -->
   <!-- <rule ref="category/java/codestyle.xml/WhileLoopsMustUseBraces" /> -->
@@ -197,7 +215,9 @@
   <!-- <rule ref="category/java/design.xml/CouplingBetweenObjects" /> -->
   <!-- <rule ref="category/java/design.xml/CyclomaticComplexity" /> -->
 
-  <rule ref="category/java/design.xml/DataClass"/>
+  <!-- There's nothing wrong with data classes -->
+  <!--<rule ref="category/java/design.xml/DataClass"/>-->
+
   <rule ref="category/java/design.xml/DoNotExtendJavaLangError"/>
   <rule ref="category/java/design.xml/ExceptionAsFlowControl"/>
 
@@ -306,12 +326,18 @@
   <!-- <rule ref="category/java/errorprone.xml/AvoidFieldNameMatchingTypeName" /> -->
 
   <rule ref="category/java/errorprone.xml/AvoidInstanceofChecksInCatchClause"/>
-  <rule ref="category/java/errorprone.xml/AvoidLiteralsInIfCondition"/>
+
+  <!-- Leave this to Checkstyle Magic Number rule-->
+  <!--<rule ref="category/java/errorprone.xml/AvoidLiteralsInIfCondition"/>-->
+
   <rule ref="category/java/errorprone.xml/AvoidLosingExceptionInformation"/>
   <rule ref="category/java/errorprone.xml/AvoidMultipleUnaryOperators"/>
   <rule ref="category/java/errorprone.xml/AvoidUsingOctalValues"/>
   <rule ref="category/java/errorprone.xml/BadComparison"/>
-  <rule ref="category/java/errorprone.xml/BeanMembersShouldSerialize"/>
+
+  <!-- We don't use Java serialization -->
+  <!--<rule ref="category/java/errorprone.xml/BeanMembersShouldSerialize"/>-->
+
   <rule ref="category/java/errorprone.xml/BrokenNullCheck"/>
 
   <!-- Call super() when and where necessary -->
@@ -327,7 +353,10 @@
   <rule ref="category/java/errorprone.xml/CloseResource"/>
   <rule ref="category/java/errorprone.xml/CompareObjectsWithEquals"/>
   <rule ref="category/java/errorprone.xml/ConstructorCallsOverridableMethod"/>
-  <rule ref="category/java/errorprone.xml/DataflowAnomalyAnalysis"/>
+
+  <!-- Difficult to understand and flags too much good code -->
+  <!--<rule ref="category/java/errorprone.xml/DataflowAnomalyAnalysis"/>-->
+
   <rule ref="category/java/errorprone.xml/DoNotCallGarbageCollectionExplicitly"/>
   <rule ref="category/java/errorprone.xml/DoNotCallSystemExit"/>
   <rule ref="category/java/errorprone.xml/DoNotExtendJavaLangThrowable"/>
