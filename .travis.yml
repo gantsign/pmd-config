@@ -14,9 +14,16 @@ cache:
 
 install: true
 script:
-  - ./mvnw clean install
+  - .travis/build.sh
 
 branches:
   only:
     - master
     - /^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)([\.\-].*)?$/
+
+env:
+  global:
+    # BINTRAY_USER
+    - secure: eKVfgrHGQox2z6OqGwz8z/ytt4Ve5wXYMqaXOMHWCj37uN49NRh/irtUdBrYJAbZDCGGXWRqzjt3a8TieB3DZlm4rqrlSyk8m0PdeS3ALV7antutTi8JTbQH4HMq8XZSU7gO7VL7mKjAJU6QrSd4WQxHO/4/TZtGBCKQJpi9q1+ENgr/mcdVUCFupz+8/NzTmgo3iaI9FK054detF5mWDbzT82dqD20Ap6evcfg5YKmrTJZ19ksZRqO3rakeRhQ6OSc+TtgWFWzMq0k6NozekIuLOleSPhA54X5IuPMM1aVwoHgrwamAx/mZO1QJ7Xm+JRWiYmlxxsEZrtXU6bPLDuL2MvfErM4zTvZqOS7Jd2KPjT/Omc1cEOv9vLP+5sxDfkQ9233hsze+8BYCRzEeT1gPN07nrkTVgD80yDKLZh9gxIzAnX0FbcJVwcY+tsmI68gt3Ke8pbXwmiYxzkG720iM9Eex8SggN/VKcRXcLfctuqL9cJJHulduA8pJ4E7vA/qSZ2SwxahASzN8MXGVQCAGPkdW8hDSqXyZ7+IX+aMEYllJq+NFnzOT0eVIm/7xtlgVuzbITd1jOTtCr7FvZc8nAb6++1QyqBGAoTO0crHVvs2kmSETZd79x5hEbTusejcrOzgJPTo+NSQcm251zBiBEuOAqQqMazoDzW3Y5ZU=
+    # BINTRAY_API_KEY
+    - secure: j8L/MLJYgEOj7QwCcRHDHbsP6d5LKVg0flNcPbOKcE1bQDbyOCJ+TM+JpKLo0vQG/UXhPHk6Ai3ebVeZWJGyP4xiK/8Q8ADbzPFsrLlzbeQIZicfSpbTUJzYoqtn2OI6UWVHZXN6inMtDRNWAHg0hx4q+8BRXu+5qTz99QPn6GXF0+lvaFrFA81+4tmcMRxHl2yspeShLqQwb1JevReEO0V+ApImaSLnjLGh0Lhgmqx2j/b7RXtW6pLvsYt3nPpm++x2fnIkaaXMCu0UPSgqBXVxHXXNOiSXGoG89/M1gLkS4YX+XRp+V0hC7CjCtiPZAnPsFciyRq1jK2tHcLDq7jv5b+Ol5vBUPU9f0Nvn1sWb+ZK4QUqYR2djtiMnhQr3qtzzVy7K6cJc01xsE9IMEQ5xsfZZsS7Qp3u540hZp+eiYRfv8+WDblLFniRFNA3MkxgMsxEUV8j4YASU+9ozXtIc8PceF5+eNNyXsAiVUD+iLXBwZ40ZyFR+ztObxO+mAOs+klwsP65iRjQeB+bfE+VnFmzDaNh1nYZlB+5i0btBpmX8pjuntBoF7ag8b9fvfQ2+bk2ZXE5DYOFis2/P5knTy+vbq/ZcDTWvcB1gAj9M1fMtpbvRX+5g/QVBstQulevjDTVOnZHo81R54VgK969db5ywQXjPWO2yn7htUUE=
