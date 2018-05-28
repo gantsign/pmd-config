@@ -4,7 +4,7 @@
 
   <groupId>com.github.gantsign.pmd</groupId>
   <artifactId>pmd-config</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>0.9.0-SNAPSHOT</version>
 
   <name>PMD Config</name>
   <description>GantSign PMD configuration</description>
